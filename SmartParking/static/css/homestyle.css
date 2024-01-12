@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+/* -------------- ROOT VARIABLES -------------- */
+
+
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #00ff00;
+    --color-warning: #ff0000;
+    --color-white: #fff;
+    --color-info-light: #008080;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: rgba(132,139,200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+
+}
+
+/*----------DARK THEME VARIABLES -------*/
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0,0,0,0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light)
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+html {
+    font-size: 14px;
+}
+
+body  {
+    width: 100vw;
+    height: 100vh;
+    font-family: poppins, sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+}
+
+.container { 
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+a {
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+#search-input {
+    width: 60%;
+    max-width: 400px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    font-size: 20px;
+    color: rgb(31, 26, 26);
+
+}
+
+#search-input:focus {
+    box-shadow: 0 0 6px rgba(10, 50, 233, 0.8);
+}
+
+form {
+    display: flex;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: rgb(26, 189, 134);
+    color: aliceblue;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    border-radius: 10px;
+    margin-left: 10px;
+
+}
+
+#search-button:hover {
+    background-color: rgb(26, 189, 134);
+    color: rgb(15, 123, 218);
+}
+
+
+
+small {
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+}
+
+p {
+    color: var(--color-dark-variant)
+}
+b {
+    color: var(--color-dark);
+}
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+.success {
+    color: var(--color-success);
+}
+.warning {
+    color: var(--color-warning);
+}
+
+aside {
+    height: 100vh;
+}
+
+aside .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4rem;
+}
+aside .logo {
+    display: flex;
+    gap: 0.8rem;
+}
+
+aside .logo img {
+    width: 2rem;
+    height: 2rem;
+}
+aside .close {
+    display: none;
+}
+
+/* ---------------------- SIDEBAR --------------*/
+aside .sidebar {
+    /* background: white; */
+    display: flex;
+    height: 86vh;
+    flex-direction: column;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    height: 3.7rem;
+    transition: all 300ms ease;
+
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 300ms ease;
+}
+
+aside .sidebar a:last-child{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+
+aside .sidebar a {
+    background: transparent;
+    color: var(--color-secondary);
+    margin-left: 0;
+}
+
+aside .sidebar a:before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-secondary);
+}
+
+aside .sidebar a span {
+    color: var(--color-secondary);
+    margin-left: calc(1rem - 3px);
+}
+
+aside .sidebar a:hover,
+aside .sidebar a.active {
+    background: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+}
+
+aside .sidebar a:hover:before,
+aside .sidebar a.active:before {
+    content: "";
+    width: 6px;
+    height: 100%;
+    background: var(--color-primary);
+}
+
+aside .sidebar a:hover span,
+aside .sidebar a.active span {
+    color: var(--color-primary);
+    margin-left: calc(1rem - 3px);
+}
+/* ---------------------- MAIN ----------------- */
+
+main {
+    margin-top: 1.4rem;
+}
+
+main .parking_lots {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2rem;
+}
+
+main .parking_lots > div {
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+main .parking_lots > div .middle {
+    text-align: center;
+    color: white;
+    
+}
+
+#results {
+    /* background: var(--color-white); */
+    background: url('../images/1200px-College_of_Engineering,_KNUST,_Kumasi,_Ghana.jpg');
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding: var(--card-padding);
+    /* border-radius: var(--card-border-radius); */
+    border-radius: 5px;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+#results h1 {
+    text-align: center;
+    color: white;
+    justify-content: center;
+}
+
+#middle {
+    display: flex;
+    text-align: center;
+    color: rgb(221, 17, 17);
+    /* justify-content: center; */
+    /* padding: 10px; */
+    flex-wrap: wrap;
+    
+}
+
+#middle1 {
+    border: 5px solid rgb(216, 213, 24);
+    margin: 20px 20px 20px;
+    border-radius: 30px;
+    height: 150px;
+    width: 200px
+
+
+}
+#middle2 {
+    border: 5px solid rgb(119, 25, 206);
+    margin: 20px 20px 20px;
+    border-radius: 30px;
+    height: 150px;
+    width: 200px
+}
+#middle3 {
+    border: 5px solid rgb(56, 189, 29);
+    margin: 20px 20px 20px;
+    border-radius: 30px;
+    height: 150px;
+    width: 200px
+}
+
+main .parking_lots > div.parking_area1 {
+    background: url('../images/1200px-College_of_Engineering,_KNUST,_Kumasi,_Ghana.jpg');
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+main .parking_lots > div.parking_area2 {
+    background: url('../images/knust-library.jpg');
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .parking_lots > div.parking_area3 {
+    background: url('../images/FY0lleUWQAMqJ5X.jpg');
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .parking_lots > div.parking_area4 {
+    background: url('../images/maxresdefault.jpg');
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    margin-top: 1.4rem;
+}
+
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right .top button {
+    display: none;
+}
+
+.right .theme-toggler {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    font-size: 1.2rem;
+}
+
+.right .theme-toggler span.active {
+    background: var(--color-primary);
+    border-radius: var(--border-radius-1);
+    color: white;
+}
+.right .top .profile {
+    display: flex;
+    text-align: right;
+    gap: 2rem;
+}
+
+
+.right div > ul {
+    margin-top: 20px;
+    display: block;
+    
+}
+.right div > ul > li {
+    margin-bottom: 20px;
+}
+
+/* .right .recent-updates {
+    background-color: #00802b;
+} */
+/* ----------------- MEDIA QUERIES ------------------------*/
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+    aside .logo h3 {
+        display: none;
+    }
+    aside .sidebar h3 {
+        display: none;
+    }
+    aside .sidebar a {
+        width: 5.6rem;
+    }
+    aside .sidebar a:last-child {
+        position: relative;
+        margin-top: 1.8rem;
+    }
+    main .parking_lots {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+/*---------------MEDIA QUERIES FOR MOBILE------------------------*/
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+    aside {
+        position: fixed;
+        left:-100%;
+        background: var(--color-white);
+        width: 18rem;
+        z-index: 3;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 400ms ease forwards;
+    }
+
+    @keyframes showMenu {
+        to{
+            left: 0;
+        }
+    }
+
+    aside .logo {
+        margin-left: 1rem;
+    }
+    aside .logo h3 {
+        display: inline;
+    }
+    aside .sidebar h3 {
+        display: inline;
+    }
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+    }
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+    }
+    aside .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 6rem;
+        padding: 0 1rem;
+    }
+    main .parking_lots > div.parking_area1 {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+        height: 200px;
+    }
+    main .parking_lots > div.parking_area2 {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+        height: 200px;
+    }
+    main .parking_lots > div.parking_area3 {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+        height: 200px;
+    }
+    main .parking_lots > div.parking_area4 {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+        height: 200px;
+    }
+
+    .right {
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+    .right .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: 0 1rem 1rem var(--color-light);
+    }
+    .right .top .theme-toggler {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+    .right .profile .info {
+        display: none;
+    }
+    .right .top button {
+        display: inline-block;
+        background: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+    .right .top button span {
+        font-size: 2rem;
+    }
+}

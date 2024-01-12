@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMART PARKING - HOME</title>
+    <link rel="stylesheet" href="{% static 'css/homestyle.css' %}">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="{% static 'images/knust_logo.png' %}" alt="LOGO">
+                    <h3><b>SMART</b><span class="danger">PARKING</span></h3>
+                </div>
+                <!-- <i class="material-icons">home</i>
+<span class="material-icons">settings</span> -->
+                <div class="close" id="close-btn">
+                    <span class="material-icons">
+                        close
+                        </span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="{% url 'SmartParking:home' %}">
+                    <span class="material-icons">home</span>
+                    <h3>Home</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">location_on</span>
+                    <h3>Map</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">book_online</span>
+                    <h3>Bookings</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">payments</span>
+                    <h3>Payments</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">event_seat</span>
+                    <h3>Reservation</h3>
+                </a>
+                <a href="">
+                    <span class="material-icons">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-----------------------------END OF ASIDE SECTION------------------------->
+        <main>
+            <form action="">
+                {% csrf_token %}
+                <input type="text" name="search" id='search-input' placeholder="Where to...?">`
+                <button id="search-button" type="submit">Search</button>
+            </form>
+            
+            <div id="results">
+                
+                <h1>COLLEGE OF ENGINEERING</h1>
+                
+            </div>
+            <div id="middle">
+                    <div id="middle1">
+                        <h1>PB</h1><br>
+                        <h1 id="count1">5</h1>
+                    </div>
+                
+                    <div id="middle2">
+                        <h1>CENTRAL</h1><br>
+                        <h1 id="count2">11</h1>
+                    </div>
+                
+                
+                    <div id="middle3">
+                        <h1>LABS</h1><br>
+                        <h1 id="count3">8</h1>
+                    </div>
+
+                    <!-- <div id="middle3">
+                        <h1>Available Spaces</h1><br>
+                    {% for space in spaces %} 
+                        <h1>{space}</h1>
+                    {% endfor %}
+                    </div> -->
+                
+            </div>
+           
+        </main>
+        <!----------------END OF MAIN------------->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-icons active">light_mode</span>
+                    <span class="material-icons">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey</p>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{% static 'images/knust_logo.png' %}" alt="profile-photo">
+                    </div>
+
+                </div>
+            </div>
+            <!--END OF TOP-->
+            <div class="recent-update">
+                <!-- <h2>RECENT UPDATES</h2> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateCounts() {
+            // Get the current counts
+            var count1 = parseInt(document.getElementById("count1").innerText);
+            var count2 = parseInt(document.getElementById("count2").innerText);
+            var count3 = parseInt(document.getElementById("count3").innerText);
+    
+            // Update the counts
+            document.getElementById("count1").innerText = count1 + 1;
+            document.getElementById("count2").innerText = count2 + 1;
+            document.getElementById("count3").innerText = count3 + 1;
+        }
+    
+        // Update counts every 10 seconds
+        setInterval(updateCounts, 10000);
+    </script>
+<script src="{% static 'js/homeScript.js'%}"></script>
+</body>
+</html>
